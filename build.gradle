@@ -1,0 +1,36 @@
+group 'com.dmsf'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+//apply plugin: "spring-boot"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+//    maven {
+//        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+//    }
+//    mavenLocal()
+}
+//sourceSets.main.resources.srcDirs = ["src/main/resource"]
+dependencies {
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile(
+            'org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE',
+            'org.springframework.boot:spring-boot-starter-data-jpa:2.0.0.RELEASE',
+            'org.apache.commons:commons-lang3:3.8.1',
+            'mysql:mysql-connector-java:5.1.20',
+            'org.springframework.boot:spring-boot-starter-aop:2.0.0.RELEASE'
+//            'com.alibaba:druid:1.1.12',
+//            'javax.servlet:javax.servlet-api:4.0.1',
+//            'org.springframework.boot:spring-boot-starter-jdbc:2.0.0.RELEASE'
+    )
+
+
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '3.3'
+    }
+}
