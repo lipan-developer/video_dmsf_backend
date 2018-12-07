@@ -29,6 +29,7 @@ public class Video {
     private String updateUser;
     private String picture;
     private String type;
+    private Integer support;
     public String getTableKey() {
         return tableKey;
     }
@@ -122,5 +123,13 @@ public class Video {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public Integer getSupport() {
+        return support;
+    }
+
+    public void setSupport(Integer support) {
+        this.support = support;
     }
 }

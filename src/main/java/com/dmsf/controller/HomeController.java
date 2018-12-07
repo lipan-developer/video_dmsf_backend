@@ -43,6 +43,63 @@ public class HomeController {
     }
 
 
+    @PostMapping("/hotMovie")
+    public Response<List<Video>> hotMovie(){
 
+        try {
+            List<Video> videos =  homeService.hotMovie();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+    @PostMapping("/hotTelevision")
+    public Response<List<Video>> hotTelevision(){
+
+        try {
+            List<Video> videos =  homeService.hotTelevision();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
+    @PostMapping("/hotAnimation")
+    public Response<List<Video>> hotAnimation(){
+
+        try {
+            List<Video> videos =  homeService.hotAnimation();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
+
+    @PostMapping("/hot3ForAll")
+    public Response<List<Video>> hot3ForAll(){
+
+        try {
+            List<Video> videos =  homeService.hot3ForAll();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
 
 }

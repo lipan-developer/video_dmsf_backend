@@ -16,7 +16,11 @@ public interface IHomeService {
      List<Video> listPage();
 
 
+    List<Video> hotMovie();
 
+    List<Video> hotTelevision();
 
+    List<Video> hotAnimation();
 
+    List<Video> hot3ForAll();
 }
