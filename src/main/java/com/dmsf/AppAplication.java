@@ -11,8 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Description: 项目启动
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.dmsf.controller","com.dmsf.service","com.dmsf.repository","com.dmsf.domain"})
-@EnableAutoConfiguration
+//@ComponentScan(basePackages = {"com.dmsf"})
+//@EnableAutoConfiguration
 public class AppAplication {
 
 
