@@ -46,4 +46,35 @@ public class MovieController {
 
 
 
+    @PostMapping("/newMovie")
+    public Response<List<Video>> getNewMovie(){
+
+        try {
+            List<Video> videos =  movieService.getNewMovie();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
+
+    @PostMapping("/hotMovie")
+    public Response<List<Video>> getHotMovie(){
+
+        try {
+            List<Video> videos =  movieService.getHotMovie();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
 }

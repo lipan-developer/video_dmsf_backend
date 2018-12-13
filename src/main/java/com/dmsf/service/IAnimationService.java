@@ -16,7 +16,7 @@ public interface IAnimationService {
      List<Video> listPage();
 
 
+    List<Video> getNewAnimation();
 
-
-
+    List<Video> getHotAnimation();
 }

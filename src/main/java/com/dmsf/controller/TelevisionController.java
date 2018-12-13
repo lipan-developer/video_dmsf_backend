@@ -43,7 +43,33 @@ public class TelevisionController {
 
     }
 
+    @PostMapping("/newTelevision")
+    public Response<List<Video>> getNewTelvision(){
 
+        try {
+            List<Video> videos =  televisionService.getNewTelvision();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+    @PostMapping("/hotTelevision")
+    public Response<List<Video>> getHotTelvision(){
+
+        try {
+            List<Video> videos =  televisionService.getHotTelvision();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
 
 
 }

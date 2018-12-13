@@ -16,7 +16,7 @@ public interface IMovieService {
      List<Video> listPage();
 
 
+    List<Video> getNewMovie();
 
-
-
+    List<Video> getHotMovie();
 }

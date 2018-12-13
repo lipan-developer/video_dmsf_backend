@@ -16,7 +16,7 @@ public interface ITelevisionService {
      List<Video> listPage();
 
 
+    List<Video> getNewTelvision();
 
-
-
+    List<Video> getHotTelvision();
 }

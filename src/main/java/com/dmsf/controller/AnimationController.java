@@ -43,6 +43,34 @@ public class AnimationController {
     }
 
 
+    @PostMapping("/newAnimation")
+    public Response<List<Video>> getNewAnimation(){
+
+        try {
+            List<Video> videos =  animationService.getNewAnimation();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
+    @PostMapping("/hotAnimation")
+    public Response<List<Video>> getHotAnimation(){
+
+        try {
+            List<Video> videos =  animationService.getHotAnimation();
+            return new Response(videos);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
 
 
 }
