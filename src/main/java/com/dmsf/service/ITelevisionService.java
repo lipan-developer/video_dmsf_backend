@@ -1,6 +1,7 @@
 package com.dmsf.service;
 
 import com.dmsf.domain.Video;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface ITelevisionService {
 
 
     //查询当前页数据
-     List<Video> listPage();
+    Page<Video> listPage(Integer page, Integer size);
 
 
     List<Video> getNewTelvision();

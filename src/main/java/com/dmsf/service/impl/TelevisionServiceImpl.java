@@ -2,10 +2,12 @@ package com.dmsf.service.impl;
 
 import com.dmsf.domain.Video;
 import com.dmsf.repositoty.VideoRepository;
-import com.dmsf.service.IHomeService;
 import com.dmsf.service.ITelevisionService;
 import com.dmsf.util.VideoType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +27,13 @@ public class TelevisionServiceImpl implements ITelevisionService {
 
 
     @Override
-    public List<Video> listPage() {
-        return videoRepository.findByType(VideoType.VIDEO_TELEVISON);
+    public Page<Video> listPage(Integer page, Integer size) {
+        //判断排序类型及排序字段
+        Sort sort =  new Sort(Sort.Direction.DESC, "updateTime");
+        //获取pageable
+        Pageable pageable = new PageRequest(page-1,size,sort);
+        Page<Video> all = videoRepository.findByType(VideoType.VIDEO_TELEVISON,pageable);
+        return  all;
     }
 
     @Override
