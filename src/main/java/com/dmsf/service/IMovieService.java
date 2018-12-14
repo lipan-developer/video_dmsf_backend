@@ -1,6 +1,7 @@
 package com.dmsf.service;
 
 import com.dmsf.domain.Video;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ import java.util.List;
 public interface IMovieService {
 
 
-    //查询当前页数据
-     List<Video> listPage();
 
 
     List<Video> getNewMovie();
 
     List<Video> getHotMovie();
+
+    Page<Video> listPage(Integer page, Integer size);
 }

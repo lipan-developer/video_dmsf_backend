@@ -5,6 +5,9 @@ import com.dmsf.repositoty.VideoRepository;
 import com.dmsf.service.IHomeService;
 import com.dmsf.util.VideoType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +28,13 @@ public class HomeServiceImpl implements IHomeService {
 
 
     @Override
-    public List<Video> listPage() {
-        return videoRepository.findAll();
+    public Page<Video> listPage(Integer page,Integer size) {
+        //判断排序类型及排序字段
+        Sort sort =  new Sort(Sort.Direction.DESC, "updateTime");
+        //获取pageable
+        Pageable pageable = new PageRequest(page-1,size,sort);
+        Page<Video> all = videoRepository.findAll(pageable);
+        return  all;
     }
 
     @Override

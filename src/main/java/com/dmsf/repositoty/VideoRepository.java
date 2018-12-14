@@ -2,6 +2,8 @@ package com.dmsf.repositoty;
 
 
 import com.dmsf.domain.Video;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -20,4 +22,10 @@ public interface VideoRepository extends JpaRepository<Video, String> {
     Video findByTableKey(String tableKey);
 
     List<Video> findFirst10ByType(String videoMovie, Sort sort);
+
+    List<Video> findByTitleLike(String title);
+
+    List<Video> findByTypeAndTitleLike(String type, String title);
+
+    Page<Video> findByType(String videoMovie, Pageable pageable);
 }

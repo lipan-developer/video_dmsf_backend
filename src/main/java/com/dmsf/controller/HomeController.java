@@ -5,10 +5,8 @@ import com.dmsf.exception.ReturnException;
 import com.dmsf.resp.Response;
 import com.dmsf.service.IHomeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,10 +27,10 @@ public class HomeController {
 
 
     @PostMapping("/listPage")
-    public Response<List<Video>> listPage(){
+    public Response<Page<Video>> listPage(@RequestParam Integer page,@RequestParam Integer size){
 
         try {
-            List<Video> videos =  homeService.listPage();
+            Page<Video> videos =  homeService.listPage(page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

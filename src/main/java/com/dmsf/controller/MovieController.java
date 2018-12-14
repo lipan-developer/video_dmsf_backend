@@ -6,10 +6,8 @@ import com.dmsf.resp.Response;
 import com.dmsf.service.IHomeService;
 import com.dmsf.service.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,10 +28,10 @@ public class MovieController {
 
 
     @PostMapping("/listPage")
-    public Response<List<Video>> listPage(){
+    public Response<Page<Video>> listPage(@RequestParam Integer page, @RequestParam Integer size){
 
         try {
-            List<Video> videos =  movieService.listPage();
+            Page<Video> videos =  movieService.listPage(page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

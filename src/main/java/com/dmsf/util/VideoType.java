@@ -6,7 +6,7 @@ package com.dmsf.util;
  * @Description:
  */
 public class VideoType {
-
+    public final static String VIDEO_ALL = "0";
     public final static String VIDEO_MOVIE = "1";
     public final static String VIDEO_TELEVISON = "2";
     public final static String VIDEO_ANIMATION = "3";
