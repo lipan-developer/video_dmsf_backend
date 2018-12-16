@@ -28,4 +28,8 @@ public interface VideoRepository extends JpaRepository<Video, String> {
     List<Video> findByTypeAndTitleLike(String type, String title);
 
     Page<Video> findByType(String videoMovie, Pageable pageable);
+
+    Page<Video> findByTitleLike(String s, Pageable pageable);
+
+    Page<Video> findByTypeAndTitleLike(String type, String s, Pageable pageable);
 }

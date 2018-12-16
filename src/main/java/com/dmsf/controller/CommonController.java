@@ -7,6 +7,7 @@ import com.dmsf.resp.Response;
 import com.dmsf.service.ICommonService;
 import com.dmsf.service.IHomeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,10 +29,10 @@ public class CommonController {
 
 
     @PostMapping("/getSeachResult")
-    public Response<List<Video>> listPage(@RequestParam String searchValue,@RequestParam String type){
+    public Response<Page<Video>> listPage(@RequestParam String searchValue,@RequestParam String type,@RequestParam Integer page,@RequestParam Integer size){
 
         try {
-            List<Video> videos =  commonService.getSeachResult(searchValue,type);
+            Page<Video> videos =  commonService.getSeachResult(searchValue,type,page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

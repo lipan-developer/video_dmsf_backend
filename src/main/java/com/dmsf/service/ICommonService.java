@@ -2,6 +2,7 @@ package com.dmsf.service;
 
 import com.dmsf.domain.Video;
 import com.dmsf.model.resp.NavDataResp;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @Description:
  */
 public interface ICommonService {
-    NavDataResp getSeachResult(String searchValue);
+    Page<Video> getSeachResult(String value, String searchValue, Integer page, Integer size);
 
-    List<Video> getSeachResult(String searchValue, String type);
+//    List<Video> getSeachResult(String searchValue, String type);
 }
