@@ -1,6 +1,6 @@
 package com.dmsf.service.impl;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.repositoty.VideoRepository;
 import com.dmsf.service.IHomeService;
 import com.dmsf.util.VideoType;
@@ -28,41 +28,41 @@ public class HomeServiceImpl implements IHomeService {
 
 
     @Override
-    public Page<Video> listPage(Integer page,Integer size) {
+    public Page<DmsfVideoInfo> listPage(Integer page, Integer size) {
         //判断排序类型及排序字段
         Sort sort =  new Sort(Sort.Direction.DESC, "updateTime");
         //获取pageable
         Pageable pageable = new PageRequest(page-1,size,sort);
-        Page<Video> all = videoRepository.findAll(pageable);
+        Page<DmsfVideoInfo> all = videoRepository.findAll(pageable);
         return  all;
     }
 
     @Override
-    public List<Video> hotMovie() {
+    public List<DmsfVideoInfo> hotMovie() {
         return getSupportFirst10ByType(VideoType.VIDEO_MOVIE);
     }
 
-    private List<Video> getSupportFirst10ByType(String type) {
+    private List<DmsfVideoInfo> getSupportFirst10ByType(String type) {
         Sort sort = new Sort(Sort.Direction.DESC, "support");
         return videoRepository.findFirst10ByType(type,sort);
     }
 
     @Override
-    public List<Video> hotTelevision() {
+    public List<DmsfVideoInfo> hotTelevision() {
         return getSupportFirst10ByType(VideoType.VIDEO_TELEVISON);
     }
 
     @Override
-    public List<Video> hotAnimation() {
+    public List<DmsfVideoInfo> hotAnimation() {
         return getSupportFirst10ByType(VideoType.VIDEO_ANIMATION);
     }
 
     @Override
-    public List<Video> hot3ForAll() {
-        List<Video> list = new ArrayList<>();
-        List<Video> hotMovies = hotMovie();
-        List<Video> hotTelevisions = hotTelevision();
-        List<Video> hotAnimations = hotAnimation();
+    public List<DmsfVideoInfo> hot3ForAll() {
+        List<DmsfVideoInfo> list = new ArrayList<>();
+        List<DmsfVideoInfo> hotMovies = hotMovie();
+        List<DmsfVideoInfo> hotTelevisions = hotTelevision();
+        List<DmsfVideoInfo> hotAnimations = hotAnimation();
         list.add(hotMovies.get(0));
         list.add(hotTelevisions.get(0));
         list.add(hotAnimations.get(0));

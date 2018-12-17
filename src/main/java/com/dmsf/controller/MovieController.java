@@ -1,9 +1,8 @@
 package com.dmsf.controller;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.exception.ReturnException;
 import com.dmsf.resp.Response;
-import com.dmsf.service.IHomeService;
 import com.dmsf.service.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,10 +27,10 @@ public class MovieController {
 
 
     @PostMapping("/listPage")
-    public Response<Page<Video>> listPage(@RequestParam Integer page, @RequestParam Integer size){
+    public Response<Page<DmsfVideoInfo>> listPage(@RequestParam Integer page, @RequestParam Integer size){
 
         try {
-            Page<Video> videos =  movieService.listPage(page,size);
+            Page<DmsfVideoInfo> videos =  movieService.listPage(page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -45,10 +44,10 @@ public class MovieController {
 
 
     @PostMapping("/newMovie")
-    public Response<List<Video>> getNewMovie(){
+    public Response<List<DmsfVideoInfo>> getNewMovie(){
 
         try {
-            List<Video> videos =  movieService.getNewMovie();
+            List<DmsfVideoInfo> videos =  movieService.getNewMovie();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -61,10 +60,10 @@ public class MovieController {
 
 
     @PostMapping("/hotMovie")
-    public Response<List<Video>> getHotMovie(){
+    public Response<List<DmsfVideoInfo>> getHotMovie(){
 
         try {
-            List<Video> videos =  movieService.getHotMovie();
+            List<DmsfVideoInfo> videos =  movieService.getHotMovie();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

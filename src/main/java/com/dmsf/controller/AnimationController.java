@@ -1,6 +1,6 @@
 package com.dmsf.controller;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.exception.ReturnException;
 import com.dmsf.resp.Response;
 import com.dmsf.service.IAnimationService;
@@ -27,10 +27,10 @@ public class AnimationController {
 
 
     @PostMapping("/listPage")
-    public Response<Page<Video>> listPage(@RequestParam Integer page, @RequestParam Integer size){
+    public Response<Page<DmsfVideoInfo>> listPage(@RequestParam Integer page, @RequestParam Integer size){
 
         try {
-            Page<Video> videos =  animationService.listPage( page,size);
+            Page<DmsfVideoInfo> videos =  animationService.listPage( page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -42,10 +42,10 @@ public class AnimationController {
 
 
     @PostMapping("/newAnimation")
-    public Response<List<Video>> getNewAnimation(){
+    public Response<List<DmsfVideoInfo>> getNewAnimation(){
 
         try {
-            List<Video> videos =  animationService.getNewAnimation();
+            List<DmsfVideoInfo> videos =  animationService.getNewAnimation();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -57,10 +57,10 @@ public class AnimationController {
 
 
     @PostMapping("/hotAnimation")
-    public Response<List<Video>> getHotAnimation(){
+    public Response<List<DmsfVideoInfo>> getHotAnimation(){
 
         try {
-            List<Video> videos =  animationService.getHotAnimation();
+            List<DmsfVideoInfo> videos =  animationService.getHotAnimation();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

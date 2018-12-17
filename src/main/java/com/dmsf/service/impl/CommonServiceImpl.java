@@ -1,7 +1,6 @@
 package com.dmsf.service.impl;
 
-import com.dmsf.domain.Video;
-import com.dmsf.model.resp.NavDataResp;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.repositoty.VideoRepository;
 import com.dmsf.service.ICommonService;
 import com.dmsf.util.VideoType;
@@ -11,8 +10,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @Auther: LiPan
@@ -27,7 +24,7 @@ public class CommonServiceImpl implements ICommonService {
 
 //    @Override
 //    public NavDataResp getSeachResult(String searchValue) {
-//        List<Video> videos = videoRepository.findByTitleLike("%"+searchValue+"%");
+//        List<DmsfVideoInfo> videos = videoRepository.findByTitleLike("%"+searchValue+"%");
 //        if (videos.size() == 0) return  null;
 //        NavDataResp nav = new NavDataResp();
 //        for (int i = 0; i < videos.size(); i++) {
@@ -44,27 +41,27 @@ public class CommonServiceImpl implements ICommonService {
 //    }
 
     @Override
-    public Page<Video> getSeachResult(String searchValue, String type, Integer page, Integer size){
+    public Page<DmsfVideoInfo> getSeachResult(String searchValue, String type, Integer page, Integer size){
         //判断排序类型及排序字段
         Sort sort =  new Sort(Sort.Direction.DESC, "updateTime");
         //获取pageable
         Pageable pageable = new PageRequest(page-1,size,sort);
         if (type.equals(VideoType.VIDEO_ALL)){
-            Page<Video> allLikeVideos = videoRepository.findByTitleLike("%" + searchValue + "%",pageable);
+            Page<DmsfVideoInfo> allLikeVideos = videoRepository.findByTitleLike("%" + searchValue + "%",pageable);
             return  allLikeVideos;
         }else{
-            Page<Video> likeVideos = videoRepository.findByTypeAndTitleLike(type,"%" + searchValue + "%",pageable);
+            Page<DmsfVideoInfo> likeVideos = videoRepository.findByTypeAndTitleLike(type,"%" + searchValue + "%",pageable);
             return  likeVideos;
         }
     }
 
 //    @Override
-//    public List<Video> getSeachResult(String searchValue, String type) {
+//    public List<DmsfVideoInfo> getSeachResult(String searchValue, String type) {
 //        if (type.equals(VideoType.VIDEO_ALL)){
-//            List<Video> allLikeVideos = videoRepository.findByTitleLike("%" + searchValue + "%");
+//            List<DmsfVideoInfo> allLikeVideos = videoRepository.findByTitleLike("%" + searchValue + "%");
 //            return  allLikeVideos;
 //        }else{
-//            List<Video> likeVideos = videoRepository.findByTypeAndTitleLike(type,"%" + searchValue + "%");
+//            List<DmsfVideoInfo> likeVideos = videoRepository.findByTypeAndTitleLike(type,"%" + searchValue + "%");
 //            return  likeVideos;
 //        }
 //

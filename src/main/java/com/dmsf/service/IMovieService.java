@@ -1,6 +1,6 @@
 package com.dmsf.service;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -15,9 +15,9 @@ public interface IMovieService {
 
 
 
-    List<Video> getNewMovie();
+    List<DmsfVideoInfo> getNewMovie();
 
-    List<Video> getHotMovie();
+    List<DmsfVideoInfo> getHotMovie();
 
-    Page<Video> listPage(Integer page, Integer size);
+    Page<DmsfVideoInfo> listPage(Integer page, Integer size);
 }

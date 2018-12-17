@@ -1,6 +1,6 @@
 package com.dmsf.model.resp;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class NavDataResp {
 
     private String type;
-    private List<Video> data;
+    private List<DmsfVideoInfo> data;
 
     public String getType() {
         return type;
@@ -22,11 +22,11 @@ public class NavDataResp {
         this.type = type;
     }
 
-    public List<Video> getData() {
+    public List<DmsfVideoInfo> getData() {
         return data;
     }
 
-    public void setData(List<Video> data) {
+    public void setData(List<DmsfVideoInfo> data) {
         this.data = data;
     }
 }

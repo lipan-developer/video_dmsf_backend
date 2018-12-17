@@ -1,6 +1,6 @@
 package com.dmsf.controller;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.exception.ReturnException;
 import com.dmsf.resp.Response;
 import com.dmsf.service.IHomeService;
@@ -27,10 +27,10 @@ public class HomeController {
 
 
     @PostMapping("/listPage")
-    public Response<Page<Video>> listPage(@RequestParam Integer page,@RequestParam Integer size){
+    public Response<Page<DmsfVideoInfo>> listPage(@RequestParam Integer page, @RequestParam Integer size){
 
         try {
-            Page<Video> videos =  homeService.listPage(page,size);
+            Page<DmsfVideoInfo> videos =  homeService.listPage(page,size);
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -42,10 +42,10 @@ public class HomeController {
 
 
     @PostMapping("/hotMovie")
-    public Response<List<Video>> hotMovie(){
+    public Response<List<DmsfVideoInfo>> hotMovie(){
 
         try {
-            List<Video> videos =  homeService.hotMovie();
+            List<DmsfVideoInfo> videos =  homeService.hotMovie();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -56,10 +56,10 @@ public class HomeController {
     }
 
     @PostMapping("/hotTelevision")
-    public Response<List<Video>> hotTelevision(){
+    public Response<List<DmsfVideoInfo>> hotTelevision(){
 
         try {
-            List<Video> videos =  homeService.hotTelevision();
+            List<DmsfVideoInfo> videos =  homeService.hotTelevision();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -71,10 +71,10 @@ public class HomeController {
 
 
     @PostMapping("/hotAnimation")
-    public Response<List<Video>> hotAnimation(){
+    public Response<List<DmsfVideoInfo>> hotAnimation(){
 
         try {
-            List<Video> videos =  homeService.hotAnimation();
+            List<DmsfVideoInfo> videos =  homeService.hotAnimation();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);
@@ -87,10 +87,10 @@ public class HomeController {
 
 
     @PostMapping("/hot3ForAll")
-    public Response<List<Video>> hot3ForAll(){
+    public Response<List<DmsfVideoInfo>> hot3ForAll(){
 
         try {
-            List<Video> videos =  homeService.hot3ForAll();
+            List<DmsfVideoInfo> videos =  homeService.hot3ForAll();
             return new Response(videos);
         }catch (ReturnException e){
             return new Response("00001",e.getMessage(),null);

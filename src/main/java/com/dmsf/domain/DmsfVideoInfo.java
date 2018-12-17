@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Auther: LiPan
@@ -14,7 +16,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_dmsf_video_info")
-public class Video {
+public class DmsfVideoInfo {
 
     @Id
     private String tableKey;
@@ -22,7 +24,6 @@ public class Video {
     private String actor;
     private Date showTime;
     private String describeInfo;
-    private String url;
     private Date createTime;
     private Date updateTime;
     private String createUser;
@@ -30,6 +31,19 @@ public class Video {
     private String picture;
     private String type;
     private Integer support;
+    @Transient
+    private List<VideoSalveInfo> salves;
+
+    private String smallDescible;
+
+    public String getSmallDescible() {
+        return smallDescible;
+    }
+
+    public void setSmallDescible(String smallDescible) {
+        this.smallDescible = smallDescible;
+    }
+
     public String getTableKey() {
         return tableKey;
     }
@@ -69,13 +83,6 @@ public class Video {
         this.describeInfo = describeInfo;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public Date getCreateTime() {
         return createTime;
@@ -131,5 +138,13 @@ public class Video {
 
     public void setSupport(Integer support) {
         this.support = support;
+    }
+
+    public List<VideoSalveInfo> getSalves() {
+        return salves;
+    }
+
+    public void setSalves(List<VideoSalveInfo> salves) {
+        this.salves = salves;
     }
 }

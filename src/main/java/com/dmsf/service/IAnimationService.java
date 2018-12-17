@@ -1,6 +1,6 @@
 package com.dmsf.service;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -14,10 +14,10 @@ public interface IAnimationService {
 
 
     //查询当前页数据
-    Page<Video> listPage(Integer page, Integer size);
+    Page<DmsfVideoInfo> listPage(Integer page, Integer size);
 
 
-    List<Video> getNewAnimation();
+    List<DmsfVideoInfo> getNewAnimation();
 
-    List<Video> getHotAnimation();
+    List<DmsfVideoInfo> getHotAnimation();
 }

@@ -1,6 +1,6 @@
 package com.dmsf.service.impl;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import com.dmsf.repositoty.VideoRepository;
 import com.dmsf.service.IMovieService;
 import com.dmsf.util.VideoType;
@@ -27,28 +27,28 @@ public class MovieServiceImpl implements IMovieService {
 
 
     @Override
-    public Page<Video> listPage(Integer page, Integer size) {
+    public Page<DmsfVideoInfo> listPage(Integer page, Integer size) {
         //判断排序类型及排序字段
         Sort sort =  new Sort(Sort.Direction.DESC, "updateTime");
         //获取pageable
         Pageable pageable = new PageRequest(page-1,size,sort);
-        Page<Video> all = videoRepository.findByType(VideoType.VIDEO_MOVIE,pageable);
+        Page<DmsfVideoInfo> all = videoRepository.findByType(VideoType.VIDEO_MOVIE,pageable);
         return  all;
 
     }
 
     @Override
-    public List<Video> getNewMovie() {
+    public List<DmsfVideoInfo> getNewMovie() {
         return getFirst10ByType(VideoType.VIDEO_MOVIE,"updateTime");
     }
 
     @Override
-    public List<Video> getHotMovie() {
+    public List<DmsfVideoInfo> getHotMovie() {
         return getFirst10ByType(VideoType.VIDEO_MOVIE,"support");
     }
 
 
-    private List<Video> getFirst10ByType(String type,String sortType) {
+    private List<DmsfVideoInfo> getFirst10ByType(String type, String sortType) {
         Sort sort = new Sort(Sort.Direction.DESC, sortType);
         return videoRepository.findFirst10ByType(type,sort);
     }

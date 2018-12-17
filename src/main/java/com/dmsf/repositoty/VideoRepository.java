@@ -1,7 +1,7 @@
 package com.dmsf.repositoty;
 
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,20 +16,20 @@ import java.util.List;
  * @Description:
  */
 @Repository
-public interface VideoRepository extends JpaRepository<Video, String> {
-    List<Video> findByType(String type);
+public interface VideoRepository extends JpaRepository<DmsfVideoInfo, String> {
+    List<DmsfVideoInfo> findByType(String type);
 
-    Video findByTableKey(String tableKey);
+    DmsfVideoInfo findByTableKey(String tableKey);
 
-    List<Video> findFirst10ByType(String videoMovie, Sort sort);
+    List<DmsfVideoInfo> findFirst10ByType(String videoMovie, Sort sort);
 
-    List<Video> findByTitleLike(String title);
+    List<DmsfVideoInfo> findByTitleLike(String title);
 
-    List<Video> findByTypeAndTitleLike(String type, String title);
+    List<DmsfVideoInfo> findByTypeAndTitleLike(String type, String title);
 
-    Page<Video> findByType(String videoMovie, Pageable pageable);
+    Page<DmsfVideoInfo> findByType(String videoMovie, Pageable pageable);
 
-    Page<Video> findByTitleLike(String s, Pageable pageable);
+    Page<DmsfVideoInfo> findByTitleLike(String s, Pageable pageable);
 
-    Page<Video> findByTypeAndTitleLike(String type, String s, Pageable pageable);
+    Page<DmsfVideoInfo> findByTypeAndTitleLike(String type, String s, Pageable pageable);
 }

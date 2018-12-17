@@ -1,6 +1,6 @@
 package com.dmsf.service;
 
-import com.dmsf.domain.Video;
+import com.dmsf.domain.DmsfVideoInfo;
 
 /**
  * @Auther: LiPan
@@ -8,5 +8,5 @@ import com.dmsf.domain.Video;
  * @Description:
  */
 public interface IDetailsService {
-    Video getVideoDetail(String tableKey);
+    DmsfVideoInfo getVideoDetail(String tableKey);
 }
