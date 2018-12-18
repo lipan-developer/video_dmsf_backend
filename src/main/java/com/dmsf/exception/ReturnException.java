@@ -6,4 +6,16 @@ package com.dmsf.exception;
  * @Description:
  */
 public class ReturnException extends RuntimeException{
+
+    public ReturnException() {
+        super();
+    }
+
+
+    public ReturnException(String message) {
+        super(message);
+    }
+
+
+
 }
