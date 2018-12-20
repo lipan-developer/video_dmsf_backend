@@ -32,4 +32,8 @@ public interface VideoRepository extends JpaRepository<DmsfVideoInfo, String> {
     Page<DmsfVideoInfo> findByTitleLike(String s, Pageable pageable);
 
     Page<DmsfVideoInfo> findByTypeAndTitleLike(String type, String s, Pageable pageable);
+
+    Page<DmsfVideoInfo> findByTitleLikeAndActorLike(String s, String s1, Pageable pageable);
+
+    Page<DmsfVideoInfo> findByTypeAndTitleLikeAndActorLike(String type, String s, String s1, Pageable pageable);
 }
