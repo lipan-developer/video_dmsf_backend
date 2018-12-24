@@ -20,4 +20,9 @@ import java.util.List;
 public interface VideoSalveRepository extends JpaRepository<VideoSalveInfo, String> {
 
     List<VideoSalveInfo> findByMasterKey(String tableKey);
+
+    VideoSalveInfo findByTableKey(String tableKey);
+
+
+    Page<VideoSalveInfo> findByMasterKey(String masterKey, Pageable pageable);
 }

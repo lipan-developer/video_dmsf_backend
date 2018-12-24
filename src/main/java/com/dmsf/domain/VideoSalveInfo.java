@@ -17,6 +17,25 @@ public class VideoSalveInfo {
     private String tableKey;
     private String masterKey;
     private String url;
+    private String episodeNumber;
+    private String remark;
+
+
+    public String getEpisodeNumber() {
+        return episodeNumber;
+    }
+
+    public void setEpisodeNumber(String episodeNumber) {
+        this.episodeNumber = episodeNumber;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public String getTableKey() {
         return tableKey;

@@ -56,6 +56,17 @@ public class CommonServiceImpl implements ICommonService {
         }
     }
 
+    @Override
+    public Boolean addsupport(String tableKey) {
+        DmsfVideoInfo video = videoRepository.findByTableKey(tableKey);
+        if(null!=video) {
+            Integer support = video.getSupport();
+            video.setSupport(support+1);
+            videoRepository.save(video);
+        }
+        return true;
+    }
+
 //    @Override
 //    public List<DmsfVideoInfo> getSeachResult(String searchValue, String type) {
 //        if (type.equals(VideoType.VIDEO_ALL)){

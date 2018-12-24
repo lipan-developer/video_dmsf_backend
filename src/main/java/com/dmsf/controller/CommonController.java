@@ -39,6 +39,21 @@ public class CommonController {
     }
 
 
+  @PostMapping("/addsupport")
+    public Response<Boolean> addsupport(@RequestParam String tableKey){
+
+        try {
+            Boolean data =  commonService.addsupport(tableKey);
+            return new Response(data);
+        }catch (ReturnException e){
+            return new Response("00001",e.getMessage(),null);
+        }catch (Exception e){
+            return new Response("00001",e.getMessage(),null);
+        }
+
+    }
+
+
 
 
 }

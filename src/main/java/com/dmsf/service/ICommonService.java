@@ -11,5 +11,7 @@ import org.springframework.data.domain.Page;
 public interface ICommonService {
     Page<DmsfVideoInfo> getSeachResult(String value, String searchValue, Integer page, Integer size);
 
+    Boolean addsupport(String tableKey);
+
 //    List<DmsfVideoInfo> getSeachResult(String searchValue, String type);
 }
