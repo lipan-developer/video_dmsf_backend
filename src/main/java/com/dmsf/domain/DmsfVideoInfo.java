@@ -1,5 +1,7 @@
 package com.dmsf.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
@@ -22,6 +24,8 @@ public class DmsfVideoInfo {
     private String tableKey;
     private String title;
     private String actor;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date showTime;
     private String describeInfo;
     private Date createTime;
@@ -66,7 +70,7 @@ public class DmsfVideoInfo {
     public void setActor(String actor) {
         this.actor = actor;
     }
-
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     public Date getShowTime() {
         return showTime;
     }
